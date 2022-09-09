@@ -577,8 +577,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="JB_busqueda" pref="199" max="32767" attributes="0"/>
-                          <Component id="TF_busquedanombre" max="32767" attributes="0"/>
-                          <Component id="TF_busquedaid" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="TF_busquedanombre" pref="199" max="32767" attributes="0"/>
+                              <Component id="TF_busquedaid" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="497" max="32767" attributes="0"/>
                   </Group>
@@ -598,8 +600,8 @@
                           <Component id="TF_busquedaid" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="JB_busqueda" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="315" max="32767" attributes="0"/>
+                      <Component id="JB_busqueda" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace pref="303" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -623,6 +625,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Realizar Busqueda"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_busquedaMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

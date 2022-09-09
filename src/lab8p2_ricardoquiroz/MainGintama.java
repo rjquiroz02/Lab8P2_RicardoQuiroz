@@ -363,6 +363,11 @@ public class MainGintama extends javax.swing.JFrame {
         jLabel17.setText("ID");
 
         JB_busqueda.setText("Realizar Busqueda");
+        JB_busqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_busquedaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -376,8 +381,9 @@ public class MainGintama extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JB_busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                    .addComponent(TF_busquedanombre)
-                    .addComponent(TF_busquedaid))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TF_busquedanombre, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                        .addComponent(TF_busquedaid)))
                 .addContainerGap(497, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -392,8 +398,8 @@ public class MainGintama extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(TF_busquedaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addComponent(JB_busqueda)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addComponent(JB_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("BusquedaSerVivo", jPanel5);
@@ -558,6 +564,21 @@ public class MainGintama extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(this, "Ser Vivo eliminado exitosamente");
     }//GEN-LAST:event_JB_eliminarserMouseClicked
+
+    private void JB_busquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_busquedaMouseClicked
+        // TODO add your handling code here:
+        String nombre = TF_busquedanombre.getText();
+        String id = TF_busquedaid.getText();
+        for (SerVivo sv : listaSV) {
+            if (nombre.equals(sv.getNombre()) && id.equals(sv.getId())) {
+                JOptionPane.showMessageDialog(this, "Si esta registrado");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "No esta registrado");
+            }
+        }
+        
+    }//GEN-LAST:event_JB_busquedaMouseClicked
 
     /**
      * @param args the command line arguments
