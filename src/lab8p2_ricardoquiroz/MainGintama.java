@@ -314,8 +314,6 @@ public class MainGintama extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ModSerVivo", jPanel3);
 
-        CB_eliminarser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         JB_eliminarser.setText("Eliminar del Sistema");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -339,7 +337,7 @@ public class MainGintama extends javax.swing.JFrame {
                 .addComponent(CB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160)
                 .addComponent(JB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("EliminarSerVivo", jPanel4);
@@ -464,8 +462,19 @@ public class MainGintama extends javax.swing.JFrame {
         else{
             raza = "Amanto";
         }
-        SerVivo serv = new SerVivo(TF_nombreSer.getText(), TF_id.getText(), (String)(CB_universoproc.getSelectedItem()), raza, JS_poder.getValue(), JS_anios.getValue());
-        
+        SerVivo serv = new SerVivo(TF_nombreSer.getText(), TF_id.getText(), ((Universo)CB_universoproc.getSelectedItem()).getNombre(), raza, (Integer)JS_poder.getValue(), (Integer)JS_anios.getValue());
+        listaSV.add(serv);
+        DefaultComboBoxModel mod = (DefaultComboBoxModel)CB_modificar.getModel();
+        mod.removeAllElements();
+        for (SerVivo sv : listaSV) {
+            mod.addElement(sv);
+        }
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)CB_eliminarser.getModel();
+        modelo.removeAllElements();
+        for (SerVivo ser : listaSV) {
+            modelo.addElement(ser);
+        }
+        JOptionPane.showMessageDialog(this, "Ser Vivo creado exitosamente");
     }//GEN-LAST:event_JB_crearpersonaMouseClicked
 
     /**
