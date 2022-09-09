@@ -65,7 +65,14 @@ public class MainGintama extends javax.swing.JFrame {
         JB_crearpersona1 = new javax.swing.JButton();
         CB_modificar = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        CB_eliminarser = new javax.swing.JComboBox<>();
+        JB_eliminarser = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        TF_busquedanombre = new javax.swing.JTextField();
+        TF_busquedaid = new javax.swing.JTextField();
+        JB_busqueda = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         PB_barraarchivo = new javax.swing.JProgressBar();
         jLabel15 = new javax.swing.JLabel();
@@ -290,34 +297,81 @@ public class MainGintama extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ModSerVivo", jPanel3);
 
+        CB_eliminarser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        JB_eliminarser.setText("Eliminar del Sistema");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 957, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(CB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(JB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 483, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(CB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
+                .addComponent(JB_eliminarser, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("EliminarSerVivo", jPanel4);
+
+        jLabel16.setText("Nombre");
+
+        jLabel17.setText("ID");
+
+        JB_busqueda.setText("Realizar Busqueda");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 957, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JB_busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(TF_busquedanombre)
+                        .addComponent(TF_busquedaid, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)))
+                .addContainerGap(497, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 483, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(TF_busquedanombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(TF_busquedaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(JB_busqueda)
+                .addContainerGap(315, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Guardar/CargarDatos", jPanel5);
+        jTabbedPane1.addTab("BusquedaSerVivo", jPanel5);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Sistema de Control");
+
+        PB_barraarchivo.setStringPainted(true);
 
         jLabel15.setText("Carga:");
 
@@ -395,12 +449,15 @@ public class MainGintama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CB_eliminarser;
     private javax.swing.JComboBox<String> CB_modificar;
     private javax.swing.JComboBox<String> CB_universoproc;
     private javax.swing.JComboBox<String> CB_universoproc1;
+    private javax.swing.JButton JB_busqueda;
     private javax.swing.JButton JB_crearpersona;
     private javax.swing.JButton JB_crearpersona1;
     private javax.swing.JButton JB_crearuniverso;
+    private javax.swing.JButton JB_eliminarser;
     private javax.swing.JSpinner JS_anios;
     private javax.swing.JSpinner JS_anios1;
     private javax.swing.JSpinner JS_poder;
@@ -410,6 +467,8 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JRadioButton RB_amanto1;
     private javax.swing.JRadioButton RB_humano;
     private javax.swing.JRadioButton RB_humano1;
+    private javax.swing.JTextField TF_busquedaid;
+    private javax.swing.JTextField TF_busquedanombre;
     private javax.swing.JTextField TF_id;
     private javax.swing.JTextField TF_id1;
     private javax.swing.JTextField TF_nombreSer;
@@ -423,6 +482,8 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
