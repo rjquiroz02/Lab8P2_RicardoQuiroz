@@ -6,6 +6,7 @@
 package lab8p2_ricardoquiroz;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -165,15 +166,15 @@ public class MainGintama extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CB_universoproc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(RB_humano)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RB_amanto))))
+                                .addComponent(RB_amanto))
+                            .addComponent(CB_universoproc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(JB_crearpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +239,8 @@ public class MainGintama extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(CB_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CB_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(134, 134, 134))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -254,21 +256,21 @@ public class MainGintama extends javax.swing.JFrame {
                             .addComponent(JS_anios1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(JB_crearpersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(91, 91, 91)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel13))
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CB_universoproc1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(RB_humano1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(RB_amanto1))))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(JB_crearpersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(167, Short.MAX_VALUE))
+                                        .addComponent(RB_amanto1))
+                                    .addComponent(CB_universoproc1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,7 +438,13 @@ public class MainGintama extends javax.swing.JFrame {
 
     private void JB_crearuniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearuniversoMouseClicked
         // TODO add your handling code here:
-        //Universo univ = 
+        Universo univ = new Universo(TF_nombreUni.getText());
+        listaU.add(univ);
+        DefaultComboBoxModel mod = (DefaultComboBoxModel)CB_universoproc.getModel();
+        mod.removeAllElements();
+        for (Universo u : listaU) {
+            mod.addElement(u);
+        }
         JOptionPane.showMessageDialog(this, "Universo creado exitosamente");
         
     }//GEN-LAST:event_JB_crearuniversoMouseClicked
