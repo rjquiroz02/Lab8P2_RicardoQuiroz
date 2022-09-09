@@ -326,6 +326,11 @@ public class MainGintama extends javax.swing.JFrame {
         jTabbedPane1.addTab("ModSerVivo", jPanel3);
 
         JB_eliminarser.setText("Eliminar del Sistema");
+        JB_eliminarser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_eliminarserMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -460,6 +465,11 @@ public class MainGintama extends javax.swing.JFrame {
         for (Universo u : listaU) {
             mod.addElement(u);
         }
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)CB_universoproc1.getModel();
+        modelo.removeAllElements();
+        for (Universo universo : listaU) {
+            modelo.addElement(universo);
+        }
         JOptionPane.showMessageDialog(this, "Universo creado exitosamente");
         
     }//GEN-LAST:event_JB_crearuniversoMouseClicked
@@ -510,7 +520,7 @@ public class MainGintama extends javax.swing.JFrame {
         for (SerVivo ser : listaSV) {
             modelo.addElement(ser);
         }
-        JOptionPane.showMessageDialog(this, "Ser Vivo creado exitosamente");
+        JOptionPane.showMessageDialog(this, "Ser Vivo modificado exitosamente");
         
     }//GEN-LAST:event_JB_modpersonaMouseClicked
 
@@ -522,10 +532,32 @@ public class MainGintama extends javax.swing.JFrame {
             TF_id1.setText(temp.getId());
             JS_poder1.setValue(temp.getPoder());
             JS_anios1.setValue(temp.getAnios());
-            
+            CB_universoproc1.setSelectedItem(temp.getUnivesoproc());
+//            if (temp.getRaza() == "Humano") {
+//                RB_humano1.isEnabled();
+//            }
+//            else{
+//                RB_amanto1.isEnabled();
+//            }
         }
         
     }//GEN-LAST:event_CB_modificarItemStateChanged
+
+    private void JB_eliminarserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_eliminarserMouseClicked
+        // TODO add your handling code here:
+        listaSV.remove((SerVivo)CB_eliminarser.getSelectedItem());
+        DefaultComboBoxModel mod = (DefaultComboBoxModel)CB_modificar.getModel();
+        mod.removeAllElements();
+        for (SerVivo sv : listaSV) {
+            mod.addElement(sv);
+        }
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)CB_eliminarser.getModel();
+        modelo.removeAllElements();
+        for (SerVivo ser : listaSV) {
+            modelo.addElement(ser);
+        }
+        JOptionPane.showMessageDialog(this, "Ser Vivo eliminado exitosamente");
+    }//GEN-LAST:event_JB_eliminarserMouseClicked
 
     /**
      * @param args the command line arguments
