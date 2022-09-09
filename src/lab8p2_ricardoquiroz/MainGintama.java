@@ -5,6 +5,9 @@
  */
 package lab8p2_ricardoquiroz;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rjqer
@@ -73,6 +76,7 @@ public class MainGintama extends javax.swing.JFrame {
         TF_busquedanombre = new javax.swing.JTextField();
         TF_busquedaid = new javax.swing.JTextField();
         JB_busqueda = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         PB_barraarchivo = new javax.swing.JProgressBar();
         jLabel15 = new javax.swing.JLabel();
@@ -83,6 +87,11 @@ public class MainGintama extends javax.swing.JFrame {
         jLabel8.setText("Nombre");
 
         JB_crearuniverso.setText("Crear Universo");
+        JB_crearuniverso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_crearuniversoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -338,16 +347,15 @@ public class MainGintama extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(203, 203, 203)
+                .addGap(204, 204, 204)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JB_busqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TF_busquedanombre)
-                        .addComponent(TF_busquedaid, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)))
+                    .addComponent(TF_busquedanombre)
+                    .addComponent(TF_busquedaid))
                 .addContainerGap(497, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -367,6 +375,19 @@ public class MainGintama extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("BusquedaSerVivo", jPanel5);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 957, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 483, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Cargar/GuardarArchivo", jPanel6);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Sistema de Control");
@@ -413,6 +434,13 @@ public class MainGintama extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JB_crearuniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearuniversoMouseClicked
+        // TODO add your handling code here:
+        //Universo univ = 
+        JOptionPane.showMessageDialog(this, "Universo creado exitosamente");
+        
+    }//GEN-LAST:event_JB_crearuniversoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -447,7 +475,10 @@ public class MainGintama extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
+    private ArrayList<Universo> listaU = new ArrayList();
+    private ArrayList<SerVivo> listaSV = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_eliminarser;
     private javax.swing.JComboBox<String> CB_modificar;
@@ -497,6 +528,7 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

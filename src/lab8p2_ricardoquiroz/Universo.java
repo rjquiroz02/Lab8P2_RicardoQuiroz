@@ -13,15 +13,13 @@ import java.util.ArrayList;
  */
 public class Universo {
     private String nombre;
-    private int cSeres;
     private ArrayList<SerVivo> listaS = new ArrayList();
 
     public Universo() {
     }
 
-    public Universo(String nombre, int cSeres) {
+    public Universo(String nombre) {
         this.nombre = nombre;
-        this.cSeres = cSeres;
     }
 
     public String getNombre() {
@@ -30,14 +28,6 @@ public class Universo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getcSeres() {
-        return cSeres;
-    }
-
-    public void setcSeres(int cSeres) {
-        this.cSeres = cSeres;
     }
 
     public ArrayList<SerVivo> getListaS() {
@@ -50,7 +40,7 @@ public class Universo {
 
     @Override
     public String toString() {
-        return "Universo{" + "nombre=" + nombre + ", cSeres=" + cSeres + ", listaS=" + listaS + '}';
+        return "Universo{" + "nombre=" + nombre + ", listaS=" + listaS + '}';
     }
     
     
