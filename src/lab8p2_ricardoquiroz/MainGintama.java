@@ -24,8 +24,16 @@ public class MainGintama extends javax.swing.JFrame {
      * Creates new form MainGintama
      */
     public MainGintama() {
-        initComponents();
+        initComponents();       
     }
+    
+    public void adminUni(String path){
+        archivoU = new File(path);
+    }
+    
+    public void  adminSV(String path){
+        archivoSV = new File(path); 
+    }   
     
     public void Cargaruniversos(){
         try {
