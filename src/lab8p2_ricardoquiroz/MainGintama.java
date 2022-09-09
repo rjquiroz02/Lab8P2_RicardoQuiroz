@@ -7,7 +7,9 @@ package lab8p2_ricardoquiroz;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -64,6 +66,48 @@ public class MainGintama extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void Escribiruniversos(){
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            fos = new FileOutputStream(archivoU);
+            oos = new ObjectOutputStream(fos);
+            for (Universo universo : listaU) {
+                oos.writeObject(universo);
+            }
+            oos.flush();
+        } catch (Exception e) {
+        }
+        finally{
+            try {
+                oos.close();
+                fos.close();
+            } catch (Exception e) {
+            }
+        }
+    }
+    
+    public void Escribirseres(){
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            fos = new FileOutputStream(archivoSV);
+            oos = new ObjectOutputStream(fos);
+            for (SerVivo sv : listaSV) {
+                oos.writeObject(sv);
+            }
+            oos.flush();
+        } catch (Exception e) {
+        }
+        finally{
+            try {
+                oos.close();
+                fos.close();
+            } catch (Exception e) {
+            }
         }
     }
 
