@@ -32,6 +32,7 @@ public class MainGintama extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -140,6 +141,11 @@ public class MainGintama extends javax.swing.JFrame {
         RB_amanto.setText("Amanto");
 
         JB_crearpersona.setText("Crear Persona");
+        JB_crearpersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_crearpersonaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -222,11 +228,11 @@ public class MainGintama extends javax.swing.JFrame {
 
         jLabel14.setText("Raza");
 
-        buttonGroup1.add(RB_humano1);
+        buttonGroup2.add(RB_humano1);
         RB_humano1.setSelected(true);
         RB_humano1.setText("Humano");
 
-        buttonGroup1.add(RB_amanto1);
+        buttonGroup2.add(RB_amanto1);
         RB_amanto1.setText("Amanto");
 
         JB_crearpersona1.setText("Modificar Persona");
@@ -449,6 +455,19 @@ public class MainGintama extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JB_crearuniversoMouseClicked
 
+    private void JB_crearpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearpersonaMouseClicked
+        // TODO add your handling code here:
+        String raza;
+        if (RB_humano.isSelected()) {
+            raza = "Humano";
+        }
+        else{
+            raza = "Amanto";
+        }
+        SerVivo serv = new SerVivo(TF_nombreSer.getText(), TF_id.getText(), (String)(CB_universoproc.getSelectedItem()), raza, JS_poder.getValue(), JS_anios.getValue());
+        
+    }//GEN-LAST:event_JB_crearpersonaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -514,6 +533,7 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JTextField TF_nombreSer1;
     private javax.swing.JTextField TF_nombreUni;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
