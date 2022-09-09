@@ -79,6 +79,8 @@ public class MainGintama extends javax.swing.JFrame {
         TF_busquedaid = new javax.swing.JTextField();
         JB_busqueda = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        JB_cargararchivo = new javax.swing.JButton();
+        JB_guardararchivo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         PB_barraarchivo = new javax.swing.JProgressBar();
         jLabel15 = new javax.swing.JLabel();
@@ -404,15 +406,29 @@ public class MainGintama extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("BusquedaSerVivo", jPanel5);
 
+        JB_cargararchivo.setText("Cargar Archivo");
+
+        JB_guardararchivo.setText("Guardar Archivo");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 957, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(370, 370, 370)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JB_guardararchivo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(JB_cargararchivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 483, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(JB_cargararchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(JB_guardararchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(295, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cargar/GuardarArchivo", jPanel6);
@@ -483,6 +499,10 @@ public class MainGintama extends javax.swing.JFrame {
     private void JB_crearpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearpersonaMouseClicked
         // TODO add your handling code here:
         String raza;
+        try {
+            JOptionPane.showMessageDialog(this, "No se puede crear");
+        } catch (Exception e) {
+        }
         if (RB_humano.isSelected()) {
             raza = "Humano";
         }
@@ -624,9 +644,11 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_universoproc;
     private javax.swing.JComboBox<String> CB_universoproc1;
     private javax.swing.JButton JB_busqueda;
+    private javax.swing.JButton JB_cargararchivo;
     private javax.swing.JButton JB_crearpersona;
     private javax.swing.JButton JB_crearuniverso;
     private javax.swing.JButton JB_eliminarser;
+    private javax.swing.JButton JB_guardararchivo;
     private javax.swing.JButton JB_modpersona;
     private javax.swing.JSpinner JS_anios;
     private javax.swing.JSpinner JS_anios1;

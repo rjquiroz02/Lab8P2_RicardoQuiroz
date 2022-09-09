@@ -5,15 +5,18 @@
  */
 package lab8p2_ricardoquiroz;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author rjqer
  */
-public class Universo {
+public class Universo implements Serializable{
     private String nombre;
     private ArrayList<SerVivo> listaS = new ArrayList();
+    
+    private static final long SerialVersionUID=100L;
 
     public Universo() {
     }

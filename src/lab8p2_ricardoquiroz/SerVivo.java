@@ -5,13 +5,17 @@
  */
 package lab8p2_ricardoquiroz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rjqer
  */
-public class SerVivo {
+public class SerVivo implements Serializable{
     private String nombre, id, univesoproc, raza;
     private int poder, anios;
+    
+    private static final long SerialVersionUID=200L;
 
     public SerVivo() {
     }
