@@ -67,7 +67,7 @@ public class MainGintama extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         RB_humano1 = new javax.swing.JRadioButton();
         RB_amanto1 = new javax.swing.JRadioButton();
-        JB_crearpersona1 = new javax.swing.JButton();
+        JB_modpersona = new javax.swing.JButton();
         CB_modificar = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         CB_eliminarser = new javax.swing.JComboBox<>();
@@ -235,7 +235,18 @@ public class MainGintama extends javax.swing.JFrame {
         buttonGroup2.add(RB_amanto1);
         RB_amanto1.setText("Amanto");
 
-        JB_crearpersona1.setText("Modificar Persona");
+        JB_modpersona.setText("Modificar Persona");
+        JB_modpersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_modpersonaMouseClicked(evt);
+            }
+        });
+
+        CB_modificar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_modificarItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -263,7 +274,7 @@ public class MainGintama extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(145, 145, 145)
-                                .addComponent(JB_crearpersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JB_modpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(91, 91, 91)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -308,7 +319,7 @@ public class MainGintama extends javax.swing.JFrame {
                             .addComponent(JS_anios1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(JB_crearpersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JB_modpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(173, Short.MAX_VALUE))
         );
 
@@ -477,6 +488,45 @@ public class MainGintama extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Ser Vivo creado exitosamente");
     }//GEN-LAST:event_JB_crearpersonaMouseClicked
 
+    private void JB_modpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_modpersonaMouseClicked
+        // TODO add your handling code here:
+        String raza;
+        if (RB_humano.isSelected()) {
+            raza = "Humano";
+        }
+        else{
+            raza = "Amanto";
+        }
+        SerVivo serv = new SerVivo(TF_nombreSer.getText(), TF_id.getText(), ((Universo)CB_universoproc.getSelectedItem()).getNombre(), raza, (Integer)JS_poder.getValue(), (Integer)JS_anios.getValue());
+        listaSV.remove((SerVivo)CB_modificar.getSelectedItem());
+        listaSV.add(serv);
+        DefaultComboBoxModel mod = (DefaultComboBoxModel)CB_modificar.getModel();
+        mod.removeAllElements();
+        for (SerVivo sv : listaSV) {
+            mod.addElement(sv);
+        }
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)CB_eliminarser.getModel();
+        modelo.removeAllElements();
+        for (SerVivo ser : listaSV) {
+            modelo.addElement(ser);
+        }
+        JOptionPane.showMessageDialog(this, "Ser Vivo creado exitosamente");
+        
+    }//GEN-LAST:event_JB_modpersonaMouseClicked
+
+    private void CB_modificarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_modificarItemStateChanged
+        // TODO add your handling code here:
+        SerVivo temp = (SerVivo)CB_modificar.getSelectedItem();
+        if (temp != null) {
+            TF_nombreSer1.setText(temp.getNombre());
+            TF_id1.setText(temp.getId());
+            JS_poder1.setValue(temp.getPoder());
+            JS_anios1.setValue(temp.getAnios());
+            
+        }
+        
+    }//GEN-LAST:event_CB_modificarItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -522,9 +572,9 @@ public class MainGintama extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_universoproc1;
     private javax.swing.JButton JB_busqueda;
     private javax.swing.JButton JB_crearpersona;
-    private javax.swing.JButton JB_crearpersona1;
     private javax.swing.JButton JB_crearuniverso;
     private javax.swing.JButton JB_eliminarser;
+    private javax.swing.JButton JB_modpersona;
     private javax.swing.JSpinner JS_anios;
     private javax.swing.JSpinner JS_anios1;
     private javax.swing.JSpinner JS_poder;
