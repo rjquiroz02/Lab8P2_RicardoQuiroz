@@ -5,6 +5,7 @@
  */
 package lab8p2_ricardoquiroz;
 
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -20,6 +21,10 @@ public class MainGintama extends javax.swing.JFrame {
      */
     public MainGintama() {
         initComponents();
+    }
+    
+    public void Cargaruniversos(){
+        
     }
 
     /**
@@ -635,7 +640,8 @@ public class MainGintama extends javax.swing.JFrame {
         });
     }
     
-    
+    private File archivoU = null;
+    private File archivoSV = null;
     private ArrayList<Universo> listaU = new ArrayList();
     private ArrayList<SerVivo> listaSV = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
