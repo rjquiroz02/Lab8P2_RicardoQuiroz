@@ -6,6 +6,8 @@
 package lab8p2_ricardoquiroz;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -24,7 +26,45 @@ public class MainGintama extends javax.swing.JFrame {
     }
     
     public void Cargaruniversos(){
-        
+        try {
+            listaU = new ArrayList();
+            Universo temp;
+            if (archivoU.exists()) {
+                FileInputStream enter = new FileInputStream(archivoU);
+                ObjectInputStream object = new ObjectInputStream(enter);
+                try {
+                    while ((temp = (Universo)object.readObject()) != null) {                        
+                        listaU.add(temp);
+                    }
+                } catch (Exception e) {
+                }
+                object.close();
+                enter.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void Cargarseres(){
+        try {
+            listaSV = new ArrayList();
+            SerVivo temp;
+            if (archivoSV.exists()) {
+                FileInputStream enter = new FileInputStream(archivoSV);
+                ObjectInputStream object = new ObjectInputStream(enter);
+                try {
+                    while ((temp = (SerVivo)object.readObject()) != null) {                        
+                        listaSV.add(temp);
+                    }
+                } catch (Exception e) {
+                }
+                object.close();
+                enter.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
