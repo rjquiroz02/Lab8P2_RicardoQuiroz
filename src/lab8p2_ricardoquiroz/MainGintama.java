@@ -35,7 +35,7 @@ public class MainGintama extends javax.swing.JFrame {
         archivoSV = new File(path); 
     }   
     
-    public void Cargaruniversos(){
+    public void Cargaruniversos(File archivo){
         try {
             listaU = new ArrayList();
             Universo temp;
@@ -77,7 +77,7 @@ public class MainGintama extends javax.swing.JFrame {
         }
     }
     
-    public void Escribiruniversos(){
+    public void Escribiruniversos(File archivo){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
@@ -606,10 +606,7 @@ public class MainGintama extends javax.swing.JFrame {
     private void JB_crearpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearpersonaMouseClicked
         // TODO add your handling code here:
         String raza;
-        try {
-            JOptionPane.showMessageDialog(this, "No se puede crear");
-        } catch (Exception e) {
-        }
+        
         if (RB_humano.isSelected()) {
             raza = "Humano";
         }
@@ -712,8 +709,8 @@ public class MainGintama extends javax.swing.JFrame {
     private void JB_cargararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_cargararchivoMouseClicked
         // TODO add your handling code here:
         //Cargar los archivos
-//        adminUni("./labcarpetas");
-//        adminSV("./labcarpetas");
+        
+        
         try {
                 Barra bar = new Barra(PB_barraarchivo, listaSV);
                 bar.start();
