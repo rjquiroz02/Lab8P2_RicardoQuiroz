@@ -715,12 +715,33 @@ public class MainGintama extends javax.swing.JFrame {
         //Cargar los archivos
         Cargaruniversos();
         Cargarseres();
+        DefaultComboBoxModel mod = (DefaultComboBoxModel)CB_universoproc.getModel();
+        mod.removeAllElements();
+        for (Universo u : listaU) {
+            mod.addElement(u);
+        }
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel)CB_universoproc1.getModel();
+        modelo.removeAllElements();
+        for (Universo universo : listaU) {
+            modelo.addElement(universo);
+        }
+        DefaultComboBoxModel model = (DefaultComboBoxModel)CB_modificar.getModel();
+        model.removeAllElements();
+        for (SerVivo sv : listaSV) {
+            model.addElement(sv);
+        }
+        DefaultComboBoxModel mode = (DefaultComboBoxModel)CB_eliminarser.getModel();
+        mode.removeAllElements();
+        for (SerVivo ser : listaSV) {
+            mode.addElement(ser);
+        }
         try {
                 PB_barraarchivo.setMaximum(listaSV.size());
                 Barra bar = new Barra(PB_barraarchivo, listaSV);
                 bar.start();
         } catch (Exception e) {
         }
+        JOptionPane.showMessageDialog(this, "Archivo cargado");
         
     }//GEN-LAST:event_JB_cargararchivoMouseClicked
 
@@ -728,7 +749,7 @@ public class MainGintama extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escribiruniversos();
         Escribirseres();
-        
+        JOptionPane.showMessageDialog(this, "Archivo Guardado");
         
     }//GEN-LAST:event_JB_guardararchivoMouseClicked
 
