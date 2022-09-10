@@ -35,12 +35,13 @@ public class MainGintama extends javax.swing.JFrame {
         archivoSV = new File(path); 
     }   
     
-    public void Cargaruniversos(File archivo){
+    public void Cargaruniversos(){
         try {
             listaU = new ArrayList();
             Universo temp;
-            if (archivoU.exists()) {
-                FileInputStream enter = new FileInputStream(archivoU);
+            File archivo = new File("./labcarpetas/general/universos.ric");
+            if (archivo.exists()) {
+                FileInputStream enter = new FileInputStream(archivo);
                 ObjectInputStream object = new ObjectInputStream(enter);
                 try {
                     while ((temp = (Universo)object.readObject()) != null) {                        
@@ -60,8 +61,9 @@ public class MainGintama extends javax.swing.JFrame {
         try {
             listaSV = new ArrayList();
             SerVivo temp;
-            if (archivoSV.exists()) {
-                FileInputStream enter = new FileInputStream(archivoSV);
+            File archivo = new File("./labcarpetas/general/seres.ric");
+            if (archivo.exists()) {
+                FileInputStream enter = new FileInputStream(archivo);
                 ObjectInputStream object = new ObjectInputStream(enter);
                 try {
                     while ((temp = (SerVivo)object.readObject()) != null) {                        
@@ -77,9 +79,10 @@ public class MainGintama extends javax.swing.JFrame {
         }
     }
     
-    public void Escribiruniversos(File archivo){
+    public void Escribiruniversos(){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
+        archivoU = new File("./labcarpetas/general/universos.ric");
         try {
             fos = new FileOutputStream(archivoU);
             oos = new ObjectOutputStream(fos);
@@ -101,6 +104,7 @@ public class MainGintama extends javax.swing.JFrame {
     public void Escribirseres(){
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
+        archivoSV = new File("./labcarpetas/general/seres.ric");
         try {
             fos = new FileOutputStream(archivoSV);
             oos = new ObjectOutputStream(fos);
@@ -709,8 +713,8 @@ public class MainGintama extends javax.swing.JFrame {
     private void JB_cargararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_cargararchivoMouseClicked
         // TODO add your handling code here:
         //Cargar los archivos
-        
-        
+        Cargaruniversos();
+        Cargarseres();
         try {
                 PB_barraarchivo.setMaximum(listaSV.size());
                 Barra bar = new Barra(PB_barraarchivo, listaSV);
@@ -722,6 +726,8 @@ public class MainGintama extends javax.swing.JFrame {
 
     private void JB_guardararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_guardararchivoMouseClicked
         // TODO add your handling code here:
+        Escribiruniversos();
+        Escribirseres();
         
         
     }//GEN-LAST:event_JB_guardararchivoMouseClicked
@@ -763,6 +769,7 @@ public class MainGintama extends javax.swing.JFrame {
     
     private File archivoU = null;
     private File archivoSV = null;
+    
     private ArrayList<Universo> listaU = new ArrayList();
     private ArrayList<SerVivo> listaSV = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
