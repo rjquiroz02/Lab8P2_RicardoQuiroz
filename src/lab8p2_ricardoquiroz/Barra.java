@@ -14,13 +14,26 @@ import javax.swing.JProgressBar;
  */
 public class Barra extends Thread{
     private JProgressBar barra;
-    private ArrayList lista = new ArrayList();
+    private ArrayList<SerVivo> lista = new ArrayList();
+
+    public Barra() {
+    }
+
+    public Barra(JProgressBar barra, ArrayList lista) {
+        this.barra = barra;
+        this.lista = lista;
+    }
     
-    @Override
+    
+    
     public void run(){
         for (Object object : lista) {
             barra.setValue(barra.getValue() + 1);
             barra.setString(Integer.toString(barra.getValue()) + "Cargados");
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
         }
     }
     
