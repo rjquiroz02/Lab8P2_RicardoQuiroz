@@ -712,6 +712,7 @@ public class MainGintama extends javax.swing.JFrame {
         
         
         try {
+                PB_barraarchivo.setMaximum(listaSV.size());
                 Barra bar = new Barra(PB_barraarchivo, listaSV);
                 bar.start();
         } catch (Exception e) {
