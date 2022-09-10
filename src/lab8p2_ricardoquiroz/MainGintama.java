@@ -711,7 +711,7 @@ public class MainGintama extends javax.swing.JFrame {
 
     private void JB_cargararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_cargararchivoMouseClicked
         // TODO add your handling code here:
-        adminUni("./");
+        adminUni("./labcarpetas/");
         
     }//GEN-LAST:event_JB_cargararchivoMouseClicked
 
