@@ -504,8 +504,18 @@ public class MainGintama extends javax.swing.JFrame {
         jTabbedPane1.addTab("BusquedaSerVivo", jPanel5);
 
         JB_cargararchivo.setText("Cargar Archivo");
+        JB_cargararchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_cargararchivoMouseClicked(evt);
+            }
+        });
 
         JB_guardararchivo.setText("Guardar Archivo");
+        JB_guardararchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_guardararchivoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -590,7 +600,7 @@ public class MainGintama extends javax.swing.JFrame {
             modelo.addElement(universo);
         }
         JOptionPane.showMessageDialog(this, "Universo creado exitosamente");
-        
+        TF_nombreUni.setText("");
     }//GEN-LAST:event_JB_crearuniversoMouseClicked
 
     private void JB_crearpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_crearpersonaMouseClicked
@@ -619,6 +629,8 @@ public class MainGintama extends javax.swing.JFrame {
             modelo.addElement(ser);
         }
         JOptionPane.showMessageDialog(this, "Ser Vivo creado exitosamente");
+        TF_nombreSer.setText("");
+        TF_id.setText("");
     }//GEN-LAST:event_JB_crearpersonaMouseClicked
 
     private void JB_modpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_modpersonaMouseClicked
@@ -696,6 +708,18 @@ public class MainGintama extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_JB_busquedaMouseClicked
+
+    private void JB_cargararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_cargararchivoMouseClicked
+        // TODO add your handling code here:
+        adminUni("./");
+        
+    }//GEN-LAST:event_JB_cargararchivoMouseClicked
+
+    private void JB_guardararchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_guardararchivoMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_JB_guardararchivoMouseClicked
 
     /**
      * @param args the command line arguments
